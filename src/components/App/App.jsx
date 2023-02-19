@@ -14,14 +14,14 @@ class App extends Component {
 
   addFeedback = event => {
     const { id } = event.target;
-    this.setState(prevState => {
+    this.setState(({ good, neutral, bad }) => {
       switch (id) {
         case 'good':
-          return { good: prevState.good + 1 };
+          return { good: good + 1 };
         case 'neutral':
-          return { neutral: prevState.neutral + 1 };
+          return { neutral: neutral + 1 };
         case 'bad':
-          return { bad: prevState.bad + 1 };
+          return { bad: bad + 1 };
       }
     });
   };
@@ -37,7 +37,8 @@ class App extends Component {
   //   };
 
   countTotalFeedback() {
-    this.totalFeedback = this.state.good + this.state.neutral + this.state.bad;
+    const { good, neutral, bad } = this.state;
+    this.totalFeedback = good + neutral + bad;
     return this.totalFeedback;
   }
   countPositiveFeedbackPercentage() {
@@ -45,6 +46,8 @@ class App extends Component {
   }
 
   render() {
+    const { good, neutral, bad } = this.state;
+
     return (
       <Layout>
         <h2>Please leave feedback</h2>
@@ -60,9 +63,9 @@ class App extends Component {
           </button>
         </div>
         <h2>Statistics</h2>
-        <span>Good: {this.state.good}</span>
-        <span>Neutral: {this.state.neutral}</span>
-        <span>Bad: {this.state.bad}</span>
+        <span>Good: {good}</span>
+        <span>Neutral: {neutral}</span>
+        <span>Bad: {bad}</span>
         <span>Total: {this.countTotalFeedback()}</span>
         <span>
           Positive feedback: {this.countPositiveFeedbackPercentage()}%
