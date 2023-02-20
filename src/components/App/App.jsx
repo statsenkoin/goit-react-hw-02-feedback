@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Layout } from './App.styled';
-// import { FeedbackOptions, Statistics } from 'components';
+import { FeedbackOptions, Statistics } from 'components';
 
 class App extends Component {
   state = {
@@ -51,7 +51,11 @@ class App extends Component {
     return (
       <Layout>
         <h2>Please leave feedback</h2>
-        <div>
+        <FeedbackOptions
+          options={Object.keys(this.state)}
+          onLeaveFeedback={this.addFeedback}
+        ></FeedbackOptions>
+        {/* <div>
           <button type="button" id="good" onClick={this.addFeedback}>
             Good
           </button>
@@ -61,27 +65,18 @@ class App extends Component {
           <button type="button" id="bad" onClick={this.addFeedback}>
             Bad
           </button>
-        </div>
+        </div> */}
         <h2>Statistics</h2>
-        <span>Good: {good}</span>
-        <span>Neutral: {neutral}</span>
-        <span>Bad: {bad}</span>
-        <span>Total: {this.countTotalFeedback()}</span>
-        <span>
-          Positive feedback: {this.countPositiveFeedbackPercentage()}%
-        </span>
+        <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={this.countTotalFeedback()}
+          positivePercentage={this.countPositiveFeedbackPercentage()}
+        ></Statistics>
       </Layout>
     );
   }
 }
 
 export { App };
-
-// render() {
-//     return (
-//       <Layout>
-//         <FeedbackOptions></FeedbackOptions>
-//         <Statistics></Statistics>
-//       </Layout>
-//     );
-//   }
