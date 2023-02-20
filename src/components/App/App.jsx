@@ -52,7 +52,8 @@ class App extends Component {
       <Layout>
         <h2>Please leave feedback</h2>
         <FeedbackOptions
-          options={Object.keys(this.state)}
+          // options={Object.keys(this.state)}
+          options={{ good: 'Good', neutral: 'Neutral', bad: 'Bad' }}
           onLeaveFeedback={this.addFeedback}
         ></FeedbackOptions>
         {/* <div>

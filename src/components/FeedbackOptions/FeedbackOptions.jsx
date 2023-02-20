@@ -3,19 +3,26 @@ import React from 'react';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <>
-      {options.map(option => {
+    <ul>
+      {Object.keys(options).map(key => {
         return (
-          <button
-            type="button"
-            key={option}
-            id={option}
-            onClick={onLeaveFeedback}
-          >
-            {option}
-          </button>
+          <li key={key}>
+            <button type="button" id={key} onClick={onLeaveFeedback}>
+              {options[key]}
+            </button>
+          </li>
         );
       })}
+
+      {/* {options.map(option => {
+         return (
+           <li key={option}>
+             <button type="button" id={option} onClick={onLeaveFeedback}>
+               {option}
+             </button>
+           </li>
+         );
+       })} */}
 
       {/* <button type="button" id="good" onClick={onLeaveFeedback}>
         Good
@@ -26,7 +33,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       <button type="button" id="bad" onClick={onLeaveFeedback}>
         Bad
       </button> */}
-    </>
+    </ul>
   );
 };
 
