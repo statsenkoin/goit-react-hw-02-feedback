@@ -1,15 +1,14 @@
 import React from 'react';
-import { Title, StatsItem } from './Statistics.styled';
+// import { Title, StatsItem } from './Statistics.styled';
 
-const Statistics = () => {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <>
-      <Title>Statistics</Title>
-      <StatsItem>Good: </StatsItem>
-      <StatsItem>Neutral: </StatsItem>
-      <StatsItem>Bad: </StatsItem>
-      <StatsItem>Total: </StatsItem>
-      <StatsItem>Positive feedback: </StatsItem>
+      <span>Good: {good}</span>
+      <span>Neutral: {neutral}</span>
+      <span>Bad: {bad}</span>
+      <span>Total: {total}</span>
+      <span>Positive feedback: {positivePercentage}%</span>
     </>
   );
 };
