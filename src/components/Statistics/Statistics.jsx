@@ -1,15 +1,30 @@
 import React from 'react';
-// import { Title, StatsItem } from './Statistics.styled';
+import { Stats, Item } from './Statistics.styled';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
-    <div>
-      <span>Good: {good}</span>
-      <span>Neutral: {neutral}</span>
-      <span>Bad: {bad}</span>
-      <span>Total: {total}</span>
-      <span>Positive feedback: {positivePercentage}%</span>
-    </div>
+    <Stats>
+      <Item>
+        <span>Good:</span>
+        <span>{good}&nbsp;</span>
+      </Item>
+      <Item>
+        <span>Neutral:</span>
+        <span>{neutral}&nbsp;</span>
+      </Item>
+      <Item>
+        <span>Bad:</span>
+        <span>{bad}&nbsp;</span>
+      </Item>
+      <Item>
+        <span>Total:</span>
+        <span>{total}&nbsp;</span>
+      </Item>
+      <Item>
+        <span>Positive feedback:</span>
+        <span>{positivePercentage}%</span>
+      </Item>
+    </Stats>
   );
 };
 
