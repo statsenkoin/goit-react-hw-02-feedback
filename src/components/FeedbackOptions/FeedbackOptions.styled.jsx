@@ -5,11 +5,14 @@ export const OptionList = styled.ul`
   justify-content: center;
   gap: 20px;
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+  padding-bottom: 20px;
   margin: 20px 0 0 0;
+
+  border-bottom: 1px solid #3acdcd;
 `;
 
-export const Option = styled.button`
+export const Option = styled.li`
   width: 100px;
   padding: 5px;
   font-size: 18px;
