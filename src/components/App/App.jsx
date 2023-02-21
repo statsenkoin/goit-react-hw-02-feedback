@@ -14,17 +14,8 @@ class App extends Component {
 
   addFeedback = event => {
     const { id } = event.target;
-    this.setState(({ good, neutral, bad }) => {
-      switch (id) {
-        case 'good':
-          return { good: good + 1 };
-        case 'neutral':
-          return { neutral: neutral + 1 };
-        case 'bad':
-          return { bad: bad + 1 };
-        default:
-          return;
-      }
+    this.setState(() => {
+      return { [id]: this.state[id] + 1 };
     });
     this.countTotalFeedback();
     this.countPositiveFeedbackPercentage();
