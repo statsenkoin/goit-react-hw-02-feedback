@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Layout = styled.div`
-  width: 400px;
+  width: 440px;
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
