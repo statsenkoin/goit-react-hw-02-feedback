@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Layout } from './App.styled';
-import { FeedbackOptions, Statistics, Section } from 'components';
+import { Section, FeedbackOptions, Statistics, Notification } from 'components';
 
 class App extends Component {
   state = {
@@ -64,7 +64,7 @@ class App extends Component {
               positivePercentage={this.positiveFeedbackPercentage}
             ></Statistics>
           ) : (
-            'There is no feedback'
+            <Notification message="There is no feedback"></Notification>
           )}
         </Section>
       </Layout>
