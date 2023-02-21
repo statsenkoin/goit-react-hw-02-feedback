@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Stats = styled.div`
-  margin-top: 20px;
-  margin-left: 60px;
-  margin-right: 60px;
+  margin: 20px 60px;
 `;
 
 export const Item = styled.p`
