@@ -17,12 +17,28 @@ export const Option = styled.li`
   padding: 5px;
   font-size: 18px;
   font-weight: 600;
-  background-color: #b0fefe;
   border: 1px solid #3acdcd;
   border-radius: 8px;
+  transition: 300ms;
+  cursor: pointer;
+
+  background-color: ${({ id }) => {
+    switch (id) {
+      case 'good':
+        return '#6cc853';
+      case 'neutral':
+        return '#f9dc38';
+      case 'bad':
+        return '#fe5744';
+      default:
+        return '#3acdcd';
+    }
+  }};
 
   &:hover {
-    background-color: #96f1f1;
     scale: 1.1;
+
+    box-shadow: rgb(0 0 0 / 20%) 0px 3px 3px -2px,
+      rgb(0 0 0 / 14%) 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px;
   }
 `;
