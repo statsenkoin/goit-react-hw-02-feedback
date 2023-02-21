@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { optionColors } from 'dataBase/optionColors';
 
 export const OptionList = styled.ul`
   display: flex;
@@ -22,18 +23,7 @@ export const Option = styled.li`
   transition: 300ms;
   cursor: pointer;
 
-  background-color: ${({ id }) => {
-    switch (id) {
-      case 'good':
-        return '#6cc853';
-      case 'neutral':
-        return '#f9dc38';
-      case 'bad':
-        return '#fe5744';
-      default:
-        return '#3acdcd';
-    }
-  }};
+  background-color: ${({ id }) => optionColors[id]};
 
   &:hover {
     scale: 1.1;
