@@ -5,10 +5,10 @@ import { Option, OptionList } from './FeedbackOptions.styled';
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <OptionList>
-      {Object.keys(options).map(key => {
+      {options.map(option => {
         return (
-          <Option key={key} id={key} onClick={onLeaveFeedback}>
-            {options[key]}
+          <Option key={option} id={option} onClick={onLeaveFeedback}>
+            {option}
           </Option>
         );
       })}
@@ -19,10 +19,6 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 export { FeedbackOptions };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.shape({
-    good: PropTypes.string.isRequired,
-    neutral: PropTypes.string.isRequired,
-    bad: PropTypes.string.isRequired,
-  }).isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };

@@ -18,6 +18,7 @@ export const Option = styled.li`
   padding: 5px;
   font-size: 18px;
   font-weight: 600;
+  text-transform: capitalize;
   border: 1px solid #3acdcd;
   border-radius: 8px;
   transition: 300ms;
