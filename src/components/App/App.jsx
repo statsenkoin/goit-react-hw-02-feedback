@@ -14,28 +14,27 @@ class App extends Component {
 
   addFeedback = event => {
     const { id } = event.target;
-    this.setState(() => {
-      return { [id]: this.state[id] + 1 };
+    this.setState(prevState => {
+      return { [id]: prevState[id] + 1 };
     });
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
   };
 
   countTotalFeedback = () => {
-    this.setState(({ good, neutral, bad }) => {
-      this.totalFeedback = good + neutral + bad;
-    });
+    const { good, neutral, bad } = this.state;
+    this.totalFeedback = good + neutral + bad;
   };
   countPositiveFeedbackPercentage = () => {
-    this.setState(({ good }) => {
-      this.positiveFeedbackPercentage = Number(
-        ((good / this.totalFeedback) * 100).toFixed(0)
-      );
-    });
+    this.positiveFeedbackPercentage = Number(
+      ((this.state.good / this.totalFeedback) * 100).toFixed(0)
+    );
   };
 
   render() {
     const { good, neutral, bad } = this.state;
+
+    this.countTotalFeedback();
+    this.countPositiveFeedbackPercentage();
+
     return (
       <Layout>
         <Section title="Please leave feedback">
